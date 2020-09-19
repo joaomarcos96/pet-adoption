@@ -1,0 +1,33 @@
+<div class="container">
+  <h1 class="page-title">Add new animal</h1>
+  <%= form_with model: @animal, local: true do |f| %>
+    <div class="row">
+      <div class="col-8">
+        <div class="form-group">
+          <%= f.label :name %><br/>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group">
+          <%= f.label :animal_type_id %><br/>
+          <%= f.collection_select :animal_type_id,
+                                  AnimalType.all,
+                                  :id,
+                                  :name,
+                                  {},
+                                  {class: 'form-control'} %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <%= f.label :date_of_birth %><br/>
+          <%= f.date_field :date_of_birth, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <%= f.submit class: 'btn btn-success' %>
+  <% end %>
+</div>
