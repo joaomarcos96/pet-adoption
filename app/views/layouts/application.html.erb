@@ -27,15 +27,18 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Pets for adoption</a>
+            <%= link_to 'Pets for adoption', animals_path, class: 'nav-link' %>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Add new pet</a>
+            <%= link_to 'Add new pet', new_animal_path, class: 'nav-link' %>
           </li>
         </ul>
       </div>
     </nav>
     <main class="container">
+      <div class="alert alert-success" role="alert">
+        <%= flash.notice %>
+      </div>
       <%= yield %>
     </main>
   </body>
