@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_234425) do
+ActiveRecord::Schema.define(version: 2020_09_22_230555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "adoptions", force: :cascade do |t|
+    t.string "adopter_name"
+    t.date "adoption_date"
+    t.bigint "animal_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["animal_id"], name: "index_adoptions_on_animal_id"
+  end
 
   create_table "animal_types", force: :cascade do |t|
     t.string "name"
@@ -25,9 +34,9 @@ ActiveRecord::Schema.define(version: 2020_09_21_234425) do
     t.bigint "animal_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "adopted", default: false
     t.index ["animal_type_id"], name: "index_animals_on_animal_type_id"
   end
 
+  add_foreign_key "adoptions", "animals"
   add_foreign_key "animals", "animal_types"
 end

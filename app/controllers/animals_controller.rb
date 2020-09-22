@@ -2,7 +2,7 @@ class AnimalsController < ApplicationController
   before_action :set_animal, only: %i[show edit update]
 
   def index
-    @animals = Animal.where(adopted: false).order(created_at: :desc)
+    @animals = Animal.available_for_adoption
   end
 
   def new
@@ -34,6 +34,6 @@ class AnimalsController < ApplicationController
   end
 
   def animal_params
-    params.require(:animal).permit(:name, :date_of_birth, :adopted, :animal_type_id)
+    params.require(:animal).permit(:name, :date_of_birth, :animal_type_id)
   end
 end
