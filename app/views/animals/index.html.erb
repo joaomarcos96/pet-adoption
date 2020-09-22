@@ -1,8 +1,21 @@
-<div class="container mx-auto px-8">
-  <p id="notice">
-    <%= notice %>
-  </p>
-  <h1 class="font-semibold text-4xl text-gray-700 my-8">
-    Animals
-  </h1>
-</div>
+<h1 class="font-semibold text-4xl text-gray-700 my-8">
+  Pets for adoption
+</h1>
+<ul id="animals-list">
+  <% @animals.each do |animal| %>
+    <li class="card-item">
+      <%= link_to edit_animal_path(animal) do %>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= animal.name %></h5>
+            <h6 class="card-subtitle"><%= animal.animal_type.name %></h6>
+            <div class="text-muted born-in">
+              Born in <%= animal.date_of_birth.strftime('%m/%d/%Y') %>
+            </div>
+            <%= link_to 'Edit', edit_animal_path(animal), class: 'btn btn-info btn-action stretched-link' %>
+          </div>
+        </div>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
