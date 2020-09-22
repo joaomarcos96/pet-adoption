@@ -1,0 +1,9 @@
+<div class="card">
+  <div class="card-body">
+    <div class="card-title"><h1><%= @animal.name %></h1></div>
+    <div class="card-subtitle text-muted"><%= @animal.animal_type.name %></div>
+    <p>Born in <%= @animal.date_of_birth.strftime('%m/%d/%Y') %>
+  </div>
+</div>
+<br>
+<%= link_to 'Back', animals_path, class: 'btn btn-secondary' %>

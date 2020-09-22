@@ -5,6 +5,8 @@ class AnimalsController < ApplicationController
     @animals = Animal.available_for_adoption
   end
 
+  def show; end
+
   def new
     @animal = Animal.new
   end
