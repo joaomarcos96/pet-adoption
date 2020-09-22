@@ -2,7 +2,9 @@ class AnimalsController < ApplicationController
   before_action :set_animal, only: %i[show edit update]
 
   def index
-    @animals = Animal.available_for_adoption
+    @animals = Animal
+      .available_for_adoption
+      .order(created_at: :desc)
   end
 
   def show; end
