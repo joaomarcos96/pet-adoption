@@ -12,7 +12,8 @@
             <div class="text-muted born-in">
               Born in <%= animal.date_of_birth.strftime('%m/%d/%Y') %>
             </div>
-            <%= link_to 'Edit', edit_animal_path(animal), class: 'btn btn-info btn-action stretched-link' %>
+            <%= link_to 'Mark as adopted', new_animal_adoption_path(animal), class: 'btn btn-success' %>
+            <%= link_to 'Edit', edit_animal_path(animal), class: 'btn btn-info' %>
           </div>
         </div>
       <% end %>

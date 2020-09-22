@@ -1,0 +1,22 @@
+<h1>Mark pet as adopted</h1>
+<br>
+<%= form_with model: @adoption, local: true, url: animal_adoptions_path do |f| %>
+  <div class="row">
+    <div class="col-8">
+      <div class="form-group">
+        <%= f.label :adopter_name %><br/>
+        <%= f.text_field :adopter_name, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <%= f.label :adoption_date %><br/>
+        <%= f.date_field :adoption_date, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'Back', animals_path, class: 'btn btn-secondary' %>
+  <%= f.submit class: 'btn btn-success' %>
+<% end %>
+
+
