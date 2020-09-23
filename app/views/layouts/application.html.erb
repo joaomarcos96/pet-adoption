@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <title>PetAdoption</title>
+    <title><%= content_for(:page_title) || 'Adopt a Pet'%></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 

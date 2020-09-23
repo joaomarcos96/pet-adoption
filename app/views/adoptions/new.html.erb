@@ -1,3 +1,4 @@
+<%- content_for(:page_title, 'Mark as adopted') %>
 <h1>Mark pet as adopted</h1>
 <br>
 <%= form_with model: @adoption, local: true, url: animal_adoptions_path do |f| %>
