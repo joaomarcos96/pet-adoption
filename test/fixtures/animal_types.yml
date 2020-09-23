@@ -1,0 +1,8 @@
+dog:
+  name: 'Dog'
+
+cat:
+  name: 'Cat'
+
+other:
+  name: 'Other'

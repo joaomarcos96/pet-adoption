@@ -1,0 +1,4 @@
+dog_pet:
+  name: 'Lisa'
+  date_of_birth: 2018-06-01
+  animal_type: dog
