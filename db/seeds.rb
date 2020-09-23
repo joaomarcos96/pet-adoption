@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+if (AnimalType.count == 0)
+  AnimalType.create(name: 'Dog')
+  AnimalType.create(name: 'Cat')
+  AnimalType.create(name: 'Other')
+end
