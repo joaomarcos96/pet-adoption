@@ -38,6 +38,8 @@ class AnimalsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to animals_url
   end
 
+  private
+
   def params
     {
       animal: {
