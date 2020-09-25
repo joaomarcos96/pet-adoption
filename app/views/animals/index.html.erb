@@ -5,17 +5,18 @@
 <ul id="animals-list">
   <% @animals.each do |animal| %>
     <li class="card-item">
-      <%= link_to animal_path(animal) do %>
-        <div class="card">
-          <div class="card-body">
+      <div class="card">
+        <div class="card-body">
+          <%= link_to animal_path(animal), class: 'card-data' do %>
             <h5 class="card-title"><%= animal.name %></h5>
             <h6 class="card-subtitle"><%= animal.animal_type.name %></h6>
-            <br>
+          <% end %>
+          <div>
             <%= link_to 'Mark as adopted', new_animal_adoption_path(animal), class: 'btn btn-success' %>
             <%= link_to 'Edit', edit_animal_path(animal), class: 'btn btn-info' %>
           </div>
         </div>
-      <% end %>
+      </div>
     </li>
   <% end %>
 </ul>

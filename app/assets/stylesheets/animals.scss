@@ -17,3 +17,10 @@ a:hover {
 .card-item ~ .card-item {
   margin-top: 10px;
 }
+.card-body {
+  display: flex;
+  flex-direction: row;
+}
+.card-data {
+  flex: 1;
+}
