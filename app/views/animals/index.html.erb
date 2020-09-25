@@ -2,10 +2,10 @@
 <h1>Pets for adoption</h1>
 <ul id="animals-list">
   <% @animals.each do |animal| %>
-    <li class="card-item">
+    <li class="animal-item">
       <div class="card">
-        <div class="card-body">
-          <%= link_to animal_path(animal), class: 'card-data' do %>
+        <div class="card-body animal-container">
+          <%= link_to animal_path(animal), class: 'animal-data' do %>
             <h5 class="card-title"><%= animal.name %></h5>
             <h6 class="card-subtitle"><%= animal.animal_type.name %></h6>
           <% end %>
