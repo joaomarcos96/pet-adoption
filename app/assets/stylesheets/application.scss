@@ -5,3 +5,11 @@
 //= require bootstrap
 
 @import "animals";
+@import "font";
+
+body {
+  font-family: 'Montserrat';
+  background-image: image-url('background.jpg');
+  background-repeat: repeat;
+  background-size: contain;
+}
