@@ -23,6 +23,16 @@ class AnimalsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to animals_url
   end
 
+  test 'should not create invalid animal' do
+    assert_no_changes 'Animal.count' do
+      post animals_url, params: {
+        animal: { animal_type_id: animal_types(:dog).id }
+      }
+    end
+
+    assert_template :new
+  end
+
   test 'should show animal' do
     get animal_url @animal
     assert_response :success
