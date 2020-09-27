@@ -2,3 +2,11 @@ adoption:
   adopter_name: 'Maria'
   adoption_date: 2020-09-16
   animal: adopted_pet
+
+adoption_without_adopter_name:
+  adoption_date: 2017-07-29
+  animal: dog_pet
+
+adoption_without_adoption_date:
+  adopter_name: 'Carlos'
+  animal: dog_pet
