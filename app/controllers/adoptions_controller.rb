@@ -1,4 +1,8 @@
 class AdoptionsController < ApplicationController
+  def index
+    redirect_to animals_path
+  end
+
   def new
     @adoption = Adoption.new
   end
