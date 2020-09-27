@@ -7,7 +7,7 @@
         <div class="card-body animal-container">
           <%= link_to animal_path(animal), class: 'animal-data' do %>
             <h5 class="card-title"><%= animal.name %></h5>
-            <h6 class="card-subtitle"><%= animal.animal_type.name %></h6>
+            <h6 class="card-subtitle text-muted"><%= animal.animal_type.name %></h6>
           <% end %>
           <div>
             <%= link_to 'Mark as adopted', new_animal_adoption_path(animal), class: 'btn btn-success' %>
