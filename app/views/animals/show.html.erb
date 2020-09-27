@@ -3,7 +3,9 @@
   <div class="card-body">
     <div class="card-title"><h1><%= @animal.name %></h1></div>
     <div class="card-subtitle text-muted"><%= @animal.animal_type.name %></div>
-    <p>Born in <%= @animal.date_of_birth.strftime('%m/%d/%Y') %>
+    <% if @animal.date_of_birth.respond_to?(:strftime) %>
+      <p>Born in <%= @animal.date_of_birth.strftime('%m/%d/%Y') %>
+    <% end %>
   </div>
 </div>
 <br>
