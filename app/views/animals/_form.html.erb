@@ -2,7 +2,7 @@
   <% if @animal.errors.any? %>
     <div class="alert alert-danger" role="alert">
       <h4>
-        <%= pluralize(@animal.errors.count, "error") %> prohibited this animal from being saved:
+        <%= pluralize(@animal.errors.count, "error") %>:
       </h4>
       <ul>
         <% @animal.errors.full_messages.each do |message| %>
@@ -39,5 +39,5 @@
     </div>
   </div>
   <%= link_to 'Back', animals_path, class: 'btn btn-secondary' %>
-  <%= f.submit class: 'btn btn-success' %>
+  <%= f.submit 'Save pet', class: 'btn btn-success' %>
 <% end %>
