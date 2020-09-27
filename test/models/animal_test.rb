@@ -1,13 +1,20 @@
 require 'test_helper'
 
 class AnimalTest < ActiveSupport::TestCase
-  test 'should save animal' do
+  test 'should save valid animal' do
     animal = animals :dog_pet
     assert animal.save
   end
 
-  test 'should not save animal' do
-    animal = Animal.new
+  test 'should not save animal without name' do
+    animal = animals :pet_without_name
+    refute animal.valid?
+    assert_not animal.save
+  end
+
+  test 'should not save animal without date of birth' do
+    animal = animals :pet_without_date_of_birth
+    refute animal.valid?
     assert_not animal.save
   end
 

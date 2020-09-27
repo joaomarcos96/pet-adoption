@@ -12,3 +12,11 @@ adopted_pet:
   name: 'Free Willy'
   date_of_birth: 2015-04-12
   animal_type: cat
+
+pet_without_name:
+  date_of_birth: 2020-06-10
+  animal_type: other
+
+pet_without_date_of_birth:
+  name: 'Yu'
+  animal_type: cat
