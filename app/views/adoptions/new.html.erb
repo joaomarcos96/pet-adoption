@@ -2,6 +2,18 @@
 <h1>Mark pet as adopted</h1>
 <br>
 <%= form_with model: @adoption, local: true, url: animal_adoptions_path do |f| %>
+  <% if @adoption.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h4>
+        <%= pluralize(@adoption.errors.count, "error") %>:
+      </h4>
+      <ul>
+        <% @adoption.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="row">
     <div class="col-8">
       <div class="form-group">
@@ -17,7 +29,7 @@
     </div>
   </div>
   <%= link_to 'Back', animals_path, class: 'btn btn-secondary' %>
-  <%= f.submit class: 'btn btn-success' %>
+  <%= f.submit 'Mark as adopted', class: 'btn btn-success' %>
 <% end %>
 
 
