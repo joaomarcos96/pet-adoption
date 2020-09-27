@@ -5,6 +5,11 @@ class AdoptionsControllerTest < ActionDispatch::IntegrationTest
     @animal = animals :dog_pet
   end
 
+  test 'should get index' do
+    get animals_url
+    assert_response :success
+  end
+
   test 'should get new' do
     get new_animal_adoption_url(@animal)
     assert_response :success
@@ -23,5 +28,16 @@ class AdoptionsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to animals_url
+  end
+
+  test 'should not mark invalid animal as adopted' do
+    adoption = adoptions :adoption
+    assert_no_changes 'Adoption.count' do
+      post animal_adoptions_url(@animal), params: {
+        adoption: { animal_id: adoption.animal_id }
+      }
+    end
+
+    assert_template :new
   end
 end
