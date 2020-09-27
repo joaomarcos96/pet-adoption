@@ -1,14 +1,26 @@
 <%= form_with model: @animal, local: true do |f| %>
+  <% if @animal.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h4>
+        <%= pluralize(@animal.errors.count, "error") %> prohibited this animal from being saved:
+      </h4>
+      <ul>
+        <% @animal.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="row">
     <div class="col-8">
       <div class="form-group">
-        <%= f.label :name %><br/>
+        <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control' %>
       </div>
     </div>
     <div class="col-4">
       <div class="form-group">
-        <%= f.label :animal_type_id %><br/>
+        <%= f.label :animal_type_id %>
         <%= f.collection_select :animal_type_id,
                                 AnimalType.all,
                                 :id,
@@ -21,7 +33,7 @@
   <div class="row">
     <div class="col-12">
       <div class="form-group">
-        <%= f.label :date_of_birth %><br/>
+        <%= f.label :date_of_birth %>
         <%= f.date_field :date_of_birth, class: 'form-control' %>
       </div>
     </div>
