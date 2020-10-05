@@ -4,12 +4,17 @@
   <% @animals.each do |animal| %>
     <li class="animal-item">
       <div class="card">
+        <% if animal.photo.attached? %>
+          <%= link_to animal_path(animal) do %>
+            <%= image_tag animal.photo, class: 'card-img-top animal-image' %>
+          <% end %>
+        <% end %>
         <div class="card-body animal-container">
-          <%= link_to animal_path(animal), class: 'animal-data' do %>
+          <%= link_to animal_path(animal) do %>
             <h5 class="card-title"><%= animal.name %></h5>
             <h6 class="card-subtitle text-muted"><%= animal.animal_type.name %></h6>
           <% end %>
-          <div>
+          <div class="animal-actions">
             <%= link_to 'Mark as adopted', new_animal_adoption_path(animal), class: 'btn btn-success' %>
             <%= link_to 'Edit', edit_animal_path(animal), class: 'btn btn-info' %>
           </div>

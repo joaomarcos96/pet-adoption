@@ -13,14 +13,20 @@ a:hover {
 #animals-list {
   list-style: none;
   margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-gap: 15px;
 }
-.animal-item ~ .animal-item {
-  margin-top: 10px;
+.animal-item {
+  height: 100%;
 }
-.animal-container {
-  display: flex;
-  flex-direction: row;
+.animal-image {
+  max-height: 150px;
+  object-fit: cover;
 }
-.animal-data {
-  flex: 1;
+.card {
+  height: 100%;
+}
+.animal-actions {
+  margin-top: 15px;
 }
