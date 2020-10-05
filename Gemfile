@@ -7,6 +7,8 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.5', '>= 4.5.2'
+gem 'cloudinary'
+gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails', '~> 4.4'
 gem 'pg', '>= 0.18', '< 2.0'
