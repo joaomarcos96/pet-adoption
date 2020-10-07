@@ -13,8 +13,9 @@ a:hover {
 #animals-list {
   list-style: none;
   margin-top: 25px;
+  padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   grid-gap: 15px;
 }
 .animal-item {
