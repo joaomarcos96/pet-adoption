@@ -11,14 +11,29 @@
       </ul>
     </div>
   <% end %>
+  <br>
   <div class="row">
-    <div class="col-sm-12">
+    <div
+      id="animal-image-preview-container"
+      class="col-sm-4"
+      style="<%= 'display: none;' unless @animal.photo.attached? %>"
+    >
+      <% if @animal.photo.attached? %>
+        <%= image_tag @animal.photo,
+          id: 'animal-image-preview',
+          class: 'card-img-top animal-image' %>
+      <% else %>
+          <img id="animal-image-preview" class="card-img-top animal-image" src="#">
+      <% end %>
+    </div>
+    <div class="col-sm-8">
       <div class="form-group">
-        <%= f.label :photo %><br>
-        <%= f.file_field :photo %>
+        <%= f.label @animal.new_record? ? 'Add photo' : 'Edit photo' %><br>
+        <%= f.file_field :photo, accept:'image/*' %>
       </div>
     </div>
   </div>
+  <br>
   <div class="row">
     <div class="col-8">
       <div class="form-group">
@@ -49,3 +64,4 @@
   <%= link_to 'Back', animals_path, class: 'btn btn-secondary' %>
   <%= f.submit 'Save pet', class: 'btn btn-success' %>
 <% end %>
+<%= javascript_pack_tag 'animal' %>
