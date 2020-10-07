@@ -1,11 +1,16 @@
 <%- content_for(:page_title, 'Pet details') %>
 <div class="card">
-  <div class="card-body">
-    <div class="card-title"><h1><%= @animal.name %></h1></div>
-    <div class="card-subtitle text-muted"><%= @animal.animal_type.name %></div>
-    <% if @animal.date_of_birth.respond_to?(:strftime) %>
-      <p>Born in <%= @animal.date_of_birth.strftime('%m/%d/%Y') %>
+  <div class="card-body animal-detail">
+    <% if @animal.photo.attached? %>
+      <%= image_tag @animal.photo, class: 'card-img-top animal-image' %>
     <% end %>
+    <div class="animal-info">
+      <div class="card-title"><h1><%= @animal.name %></h1></div>
+      <div class="card-subtitle text-muted"><%= @animal.animal_type.name %></div>
+      <% if @animal.date_of_birth.respond_to?(:strftime) %>
+        <p>Born in <%= @animal.date_of_birth.strftime('%m/%d/%Y') %>
+      <% end %>
+    </div>
   </div>
 </div>
 <br>

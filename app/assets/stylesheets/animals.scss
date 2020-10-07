@@ -31,3 +31,8 @@ a:hover {
 .animal-actions {
   margin-top: 15px;
 }
+.animal-detail {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-gap: 1rem;
+}
