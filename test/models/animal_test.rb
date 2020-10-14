@@ -6,6 +6,19 @@ class AnimalTest < ActiveSupport::TestCase
     assert animal.save
   end
 
+  test 'should save animal with photo' do
+    animal = animals :dog_with_attachment
+    assert animal.save
+  end
+
+  test 'should have photo attached' do
+    animal = animals :dog_pet
+    file = Rails.root.join('test', 'fixtures', 'files', 'test.png')
+    animal.photo.attach(io: File.open(file), filename: 'test.png')
+    assert animal.valid?
+    assert animal.photo.attached?
+  end
+
   test 'should not save animal without name' do
     animal = animals :pet_without_name
     refute animal.valid?
