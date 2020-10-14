@@ -1,0 +1,5 @@
+dog_attachment:
+  name: image
+  record_type: 'Animal'
+  record_id: <%= ActiveRecord::FixtureSet.identify(:dog_with_attachment) %>
+  blob_id: <%= ActiveRecord::FixtureSet.identify(:dog_attachment_blob) %>
