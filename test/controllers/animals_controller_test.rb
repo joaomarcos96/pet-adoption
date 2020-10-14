@@ -3,6 +3,7 @@ require 'test_helper'
 class AnimalsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @animal = animals :dog_pet
+    @animal_with_photo = animals :dog_with_attachment
   end
 
   test 'should get index' do
@@ -18,6 +19,14 @@ class AnimalsControllerTest < ActionDispatch::IntegrationTest
   test 'should create animal' do
     assert_difference 'Animal.count' do
       post animals_url, params: params
+    end
+
+    assert_redirected_to animals_url
+  end
+
+  test 'should create animal with photo' do
+    assert_difference 'Animal.count' do
+      post animals_url, params: animal_with_photo
     end
 
     assert_redirected_to animals_url
@@ -48,6 +57,11 @@ class AnimalsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to animals_url
   end
 
+  test 'should update animal with photo' do
+    patch animal_url @animal_with_photo, params: params
+    assert_redirected_to animals_url
+  end
+
   private
 
   def params
@@ -58,5 +72,11 @@ class AnimalsControllerTest < ActionDispatch::IntegrationTest
         animal_type_id: animal_types(:dog).id
       }
     }
+  end
+
+  def animal_with_photo
+    with_photo = params
+    with_photo[:animal][:photo] = fixture_file_upload('files/test.png', 'image/png')
+    with_photo
   end
 end
