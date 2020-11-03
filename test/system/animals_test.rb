@@ -13,7 +13,7 @@ class AnimalsTest < ApplicationSystemTestCase
     click_on 'Add new pet'
 
     fill_in 'Name', with: 'Dogo'
-    fill_in 'Date of birth', with: '10/08/2019'
+    fill_in 'Date of birth', with: Date.yesterday
 
     click_on 'Save pet'
 
@@ -28,7 +28,7 @@ class AnimalsTest < ApplicationSystemTestCase
     attach_file('animal[photo]', Rails.root.join('test', 'fixtures', 'files', 'test.png'))
 
     fill_in 'Name', with: 'Dogo with pic'
-    fill_in 'Date of birth', with: '30/04/2018'
+    fill_in 'Date of birth', with: Date.yesterday
 
     click_on 'Save pet'
 
@@ -41,7 +41,7 @@ class AnimalsTest < ApplicationSystemTestCase
     click_on 'Edit', match: :first
 
     fill_in 'Name', with: 'Pitoquinho'
-    fill_in 'Date of birth', with: '11/04/2020'
+    fill_in 'Date of birth', with: Date.today
 
     click_on 'Save pet'
 

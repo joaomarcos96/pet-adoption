@@ -7,7 +7,7 @@ class AdoptionsTest < ApplicationSystemTestCase
     click_on 'Mark as adopted', match: :first
 
     fill_in 'Adopter name', with: 'John'
-    fill_in 'Adoption date', with: '05/09/2020'
+    fill_in 'Adoption date', with: Date.today
 
     click_on 'Mark as adopted'
 
